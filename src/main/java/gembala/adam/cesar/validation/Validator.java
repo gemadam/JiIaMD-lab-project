@@ -4,7 +4,8 @@
  */
 package gembala.adam.cesar.validation;
 
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Class of a validator
@@ -15,15 +16,15 @@ public class Validator {
     
     
     /**
-     * Vector of validator rules
+     * Collection of validator rules
      */
-    private final Vector<IValidatorRule> vValidators;
+    private final List<IValidatorRule> lstValidators;
     
     /**
      * Default constructor
      */
     public Validator() {
-        this.vValidators = new Vector<IValidatorRule>();
+        this.lstValidators = new ArrayList<IValidatorRule>();
     }
     
     /**
@@ -31,7 +32,7 @@ public class Validator {
      * @param validators List of validators
      */
     public Validator(IValidatorRule ...validators) {
-        this.vValidators = new Vector<IValidatorRule>();
+        this.lstValidators = new ArrayList<IValidatorRule>();
         
         for (int i = 0; i < validators.length; i++)
             this.addValidatorRule(validators[i]);
@@ -42,7 +43,7 @@ public class Validator {
      * @param rule Validation rule to be added
      */
     public void addValidatorRule(IValidatorRule rule) {
-        vValidators.add(rule);
+        lstValidators.add(rule);
     }
     
     /**
@@ -53,8 +54,8 @@ public class Validator {
      */
     public boolean validate(String sUserInput) throws ValidatorException {
         
-        for(var i = 0; i < vValidators.size(); i++) {
-            var validator = vValidators.get(i);
+        for(var i = 0; i < lstValidators.size(); i++) {
+            var validator = lstValidators.get(i);
             
             if(!validator.isValid(sUserInput))
                 throw new ValidatorException(validator.getErrorMessage());
