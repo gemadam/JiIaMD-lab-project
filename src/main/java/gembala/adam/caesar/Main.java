@@ -10,6 +10,7 @@ import gembala.adam.cesar.model.CaesarCipher;
 /**
  * Main class of a program
  * @author Adam Gembala
+ * @version 1.0.0
  */
 public class Main {
     

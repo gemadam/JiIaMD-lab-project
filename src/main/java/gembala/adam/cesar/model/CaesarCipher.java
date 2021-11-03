@@ -7,6 +7,7 @@ package gembala.adam.cesar.model;
 /**
  * Caesar cipher class 
  * @author Adam Gembala
+ * @version 1.0.0
  */
 public class CaesarCipher {
     

@@ -10,6 +10,7 @@ import gembala.adam.cesar.model.CaesarCipherModel;
 /**
  * View that asks user for text input
  * @author Adam Gembala
+ * @version 1.0.0
  */
 public class CaesarCipherTextInputView implements ICaesarCipherView {
     

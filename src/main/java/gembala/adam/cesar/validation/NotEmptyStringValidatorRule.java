@@ -7,6 +7,7 @@ package gembala.adam.cesar.validation;
 /**
  * Validator of empty string
  * @author Adam Gembala
+ * @version 1.0.0
  */
 public class NotEmptyStringValidatorRule implements IValidatorRule {
     

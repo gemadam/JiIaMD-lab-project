@@ -9,6 +9,7 @@ import gembala.adam.cesar.model.CaesarCipherModel;
 /**
  * View that asks user for shift input
  * @author Adam Gembala
+ * @version 1.0.0
  */
 public class CaesarCipherShiftInputView implements ICaesarCipherView {
     

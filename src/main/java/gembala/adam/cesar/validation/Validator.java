@@ -9,6 +9,7 @@ import java.util.Vector;
 /**
  * Class of a validator
  * @author Adam Gembala
+ * @version 1.0.0
  */
 public class Validator {
     

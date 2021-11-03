@@ -9,6 +9,7 @@ import gembala.adam.cesar.model.CaesarCipherModel;
 /**
  * Interface of an application view
  * @author Adam Gembala
+ * @version 1.0.0
  */
 public interface ICaesarCipherView {
     

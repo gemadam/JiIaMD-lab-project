@@ -7,6 +7,7 @@ package gembala.adam.cesar.validation;
 /**
  * Interface of a user input validator   
  * @author Adam Gembala
+ * @version 1.0.0
  */
 public interface IValidatorRule {
     

@@ -13,6 +13,7 @@ import gembala.adam.cesar.validation.ValidatorException;
  * Class of cipher model contains the data neccessary to 
  * encrypt text using caesar cipher
  * @author Adam Gembala
+ * @version 1.0.0
  */
 final public class CaesarCipherModel {
     

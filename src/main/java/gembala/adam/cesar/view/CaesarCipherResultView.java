@@ -9,6 +9,7 @@ import gembala.adam.cesar.model.CaesarCipherModel;
 /**
  * Class that displays results to the user
  * @author Adam Gembala
+ * @version 1.0.0
  */
 public class CaesarCipherResultView implements ICaesarCipherView {
     

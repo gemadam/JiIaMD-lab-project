@@ -8,6 +8,7 @@ package gembala.adam.cesar.validation;
 /**
  * Validator that checks if input contains characters from english alphabet
  * @author Adam Gembala
+ * @version 1.0.0
  */
 public class EnglishAlphabetValidatorRule implements IValidatorRule {
     

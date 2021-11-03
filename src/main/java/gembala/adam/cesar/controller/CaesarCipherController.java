@@ -14,6 +14,7 @@ import java.util.Scanner;
 /**
  * Controller of an Caesar cipher application
  * @author Adam Gembala
+ * @version 1.0.0
  */
 public class CaesarCipherController {
     

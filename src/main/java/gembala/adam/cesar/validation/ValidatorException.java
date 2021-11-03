@@ -8,6 +8,7 @@ package gembala.adam.cesar.validation;
 /**
  * Validator exception, thrown when validation errors occured
  * @author Adam Gembala
+ * @version 1.0.0
  */
 public class ValidatorException extends Exception {
     
