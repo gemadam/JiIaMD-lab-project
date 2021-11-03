@@ -11,7 +11,7 @@ import org.junit.jupiter.params.provider.CsvSource;
  * @author Adam
  * @version 1.0.0
  */
-public class ModelTests {
+public class CipherTests {
     
     
     @ParameterizedTest

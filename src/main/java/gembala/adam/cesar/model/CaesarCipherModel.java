@@ -102,14 +102,6 @@ final public class CaesarCipherModel {
     }
     
     /**
-     * Sets the value of a text after shifting
-     * @param sNewValue New value to be assigned
-     */
-    public void setTextAfterShifting(String sNewValue) {
-        sTextAfterShifting = sNewValue;
-    }
-    
-    /**
      * Getter of the text after shifting
      * @return Current value of shift
      */
