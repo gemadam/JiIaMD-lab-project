@@ -5,7 +5,7 @@
 
 **Caesar cipher**. The program should implement the Caesar cipher. The program should perform both encoding and decoding of texts. The key for encoding/decoding should not be hard-coded (the user should be able to provide it). The encoding/decoding should not change the case of the text and they should allow for multi-word texts. Text containing letters outside of the English alphabet should be considered invalid.
 
-## Scopes of the development iterrations
+## Scopes of the development iterations
 
 ### Prototype no. 1
 
@@ -54,3 +54,9 @@
 - documentation (Javadoc) - description of all classes, methods, fields, and packages (including unit tests),
 - documentation (Javadoc) - mandatory tags: @author, @version, @param, @return, @throws,
 - Java naming convention and English identifiers.
+
+
+## Submitting project iteration
+
+Project should be submitted in form of the zip archive.
+Archive should contain the whole netbeans project without /target folder (but remember about extracting documentation with show=private).
