@@ -2,29 +2,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
  */
-package ModelTests;
+package gembala.adam.model.tests;
 
 import gembala.adam.cesar.model.CaesarCipherModel;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 /**
- *
+ * Tests if model state operations work
  * @author Adam
  * @version 1.0.0
  */
 public class ModelStateTests {
     
-    public ModelStateTests() {
-    }
-    
+    /**
+     * Checks whether getter of public text works
+     * @param sPublicText Public text to be tested
+     */
     @ParameterizedTest
     @CsvSource({
         "ABCDEFGHIJKLMNOPRSTQUVWXZ",
@@ -45,6 +41,10 @@ public class ModelStateTests {
     }
     
     
+    /**
+     * Checks whether getter of shift works
+     * @param iShift Shift to be checked
+     */
     @ParameterizedTest
     @CsvSource({
         "-10000",
@@ -65,6 +65,10 @@ public class ModelStateTests {
     }
     
     
+    /**
+     * Checks if setter of public text works
+     * @param sPublicText Public text to be tested
+     */
     @ParameterizedTest
     @CsvSource({
         "ABCDEFGHIJKLMNOPRSTQUVWXZ",
@@ -86,6 +90,10 @@ public class ModelStateTests {
     }
     
     
+    /**
+     * Checks whether setter of shift works
+     * @param iShift Shift to be set
+     */
     @ParameterizedTest
     @CsvSource({
         "-10000",
@@ -107,6 +115,11 @@ public class ModelStateTests {
     }
     
     
+    /**
+     * Checks whether setter of state works properly
+     * @param sPublicText Public text to be set
+     * @param iShift Shift to be set
+     */
     @ParameterizedTest
     @CsvSource({
         "ABCDEFGHIJKLMNOPRSTQUVWXZ, 1",

@@ -2,26 +2,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
  */
-package ModelTests;
+package gembala.adam.model.tests;
 
 import gembala.adam.cesar.model.CaesarCipherModel;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 /**
- *
+ * Tests that examine behavior of model when invalid input was provided
  * @author Adam
  * @version 1.0.0
  */
 public class InvalidTextTests {
     
+    /**
+     * Checks if model validates the input
+     * @param sPublicText Text to be set
+     * @param bExpectedResult Expected result of setState execution
+     */
     @ParameterizedTest
     @CsvSource({
         "'ABCDEFGHIJKLMNOPRSTQUVWXZ...', false",
