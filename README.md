@@ -59,4 +59,4 @@
 ## Submitting project iteration
 
 Project should be submitted in form of the zip archive.
-Archive should contain the whole netbeans project without /target folder (but remember about extracting documentation with show=private).
+Archive should contain the whole netbeans project without /target folder (but remember about extracting documentation with show=private + 'generate-sources javadoc:javadoc javadoc:test-javadoc').
