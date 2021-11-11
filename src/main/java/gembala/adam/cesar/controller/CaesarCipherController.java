@@ -47,7 +47,12 @@ public class CaesarCipherController {
         if(arg.length < 2)
             return false;
         
-        return model.setState(arg[1], Integer.parseInt(arg[0]));
+        try {
+            return model.setState(arg[1], Integer.parseInt(arg[0]));
+        }
+        catch(NumberFormatException e) {
+            return false;
+        }
     }
     
     /**
