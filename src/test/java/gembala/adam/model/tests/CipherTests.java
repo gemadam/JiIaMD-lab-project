@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 /**
  * Tests of the cipher
- * @author Adam
+ * @author Adam Gembala
  * @version 1.0.0
  */
 public class CipherTests {

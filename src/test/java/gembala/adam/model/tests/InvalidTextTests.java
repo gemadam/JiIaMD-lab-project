@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 /**
  * Tests that examine behavior of model when invalid input was provided
- * @author Adam
+ * @author Adam Gembala
  * @version 1.0.0
  */
 public class InvalidTextTests {

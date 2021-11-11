@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 /**
  * Tests if model state operations work
- * @author Adam
+ * @author Adam Gembala
  * @version 1.0.0
  */
 public class ModelStateTests {
