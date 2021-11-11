@@ -34,8 +34,8 @@ public class Validator {
     public Validator(IValidatorRule ...validators) {
         this.lstValidators = new ArrayList<IValidatorRule>();
         
-        for (int i = 0; i < validators.length; i++)
-            this.addValidatorRule(validators[i]);
+        for(var v: validators)
+            this.addValidatorRule(v);
     }
     
     /**
@@ -53,13 +53,10 @@ public class Validator {
      * @throws ValidatorException When input is invalid
      */
     public boolean validate(String sUserInput) throws ValidatorException {
-        
-        for(var i = 0; i < lstValidators.size(); i++) {
-            var validator = lstValidators.get(i);
-            
+           
+        for(var validator: this.lstValidators)
             if(!validator.isValid(sUserInput))
                 throw new ValidatorException(validator.getErrorMessage());
-        }
         
         return true;
     }

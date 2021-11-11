@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
- */
 package gembala.adam.model.tests;
 
 import gembala.adam.cesar.model.CaesarCipherModel;
@@ -24,6 +20,7 @@ public class InvalidTextTests {
      */
     @ParameterizedTest
     @CsvSource({
+        "'', false",
         "'ABCDEFGHIJKLMNOPRSTQUVWXZ...', false",
         "'ABCDEFGHIJKLMNOPRSTQUVWXZ', true",
         "abcdefghijklmnoprstquvwxz1, false",

@@ -19,7 +19,7 @@ final public class CaesarCipherModel {
     
     
     /**
-     * Validator of the model
+     * Validator of the model, stores a generic collection of validation rules
      */
     private final Validator myValidator;
     

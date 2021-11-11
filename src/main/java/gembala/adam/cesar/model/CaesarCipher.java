@@ -25,19 +25,21 @@ public class CaesarCipher {
         if(iShift < 0)
             iShift = (26 - (Math.abs(iShift) % 26));
         
-        var arrCharacters = sText.toCharArray();
-        for(var i = 0; i < arrCharacters.length; i++) {
+        
+        final var iFinalShift = iShift;
+        return sText.chars().map(c -> {
             
-            var iAlphabetPosition = sAlphabet.indexOf(arrCharacters[i]);
+            var iAlphabetPosition = sAlphabet.indexOf(c);
             
             if(iAlphabetPosition < 0)
-                continue;
+                return c;
             
-            var iNewAlphabetPosition = (iAlphabetPosition + iShift) % sAlphabet.length();
+            var iNewAlphabetPosition = (iAlphabetPosition + iFinalShift) % sAlphabet.length();
             
-            arrCharacters[i] = sAlphabet.charAt(iNewAlphabetPosition);
-        }
-        return String.valueOf(arrCharacters);
+            return sAlphabet.charAt(iNewAlphabetPosition);
+        })
+        .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+        .toString();
     }
     
     /**

@@ -2,11 +2,6 @@ package gembala.adam.cesar.view;
 
 import gembala.adam.cesar.model.CaesarCipherModel;
 
-/*
- * @author Adam Gembala
- * @version 1.0.0
- */
-
 /**
  * View that asks user for text input
  * @author Adam Gembala
