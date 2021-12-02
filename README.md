@@ -55,6 +55,24 @@
 - documentation (Javadoc) - mandatory tags: @author, @version, @param, @return, @throws,
 - Java naming convention and English identifiers.
 
+### Prototype no. 3
+
+- scope of the prototypes no. 1 & 2
+- at least one complete application view designed in Swing or Java FX
+- listener/action methods headers (the body may be empty) for all buttons
+
+### Final version no. 3
+
+- scope of the final projects no. 1 & 2,
+- GUI application based on Swing or JavaFX, including:
+    - an advanced container (tabbed pane, split pane),
+    - message box (JOptionPane for Swing, Alert for JavaFX) to indicate validation errors or information messages,
+    - table to store the history of performed operations,
+    - menu,
+- documentation (Javadoc) - description of all classes, methods, fields, and packages (including unit tests),
+- documentation (Javadoc) - mandatory tags: @author, @version, @param, @return, @throws,
+- Java naming convention and English identifiers.
+
 
 ## Submitting project iteration
 
