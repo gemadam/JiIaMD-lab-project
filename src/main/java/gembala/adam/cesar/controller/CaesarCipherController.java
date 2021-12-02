@@ -10,6 +10,7 @@ import gembala.adam.cesar.view.CaesarCipherResultView;
 import gembala.adam.cesar.view.CaesarCipherShiftInputView;
 import gembala.adam.cesar.view.ICaesarCipherView;
 import java.util.Scanner;
+import javafx.event.ActionEvent;
 
 /**
  * Controller of an Caesar cipher application
@@ -35,6 +36,13 @@ public class CaesarCipherController {
     public CaesarCipherController() {
         model = new CaesarCipherModel();
         view = new CaesarCipherResultView();
+    }
+    
+    public String encrypt(String sPublicText, int iShift) {
+        model.setTextBeforeShifting(sPublicText);
+        model.setShift(iShift);
+        
+        return model.getTextAfterShifting();
     }
     
     /**
