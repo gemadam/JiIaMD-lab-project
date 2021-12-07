@@ -16,6 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -148,7 +149,12 @@ public class CaesarCipherGUI {
         StackPane root = new StackPane();
         root.getChildren().add(mainLayout);
         
-        Scene scene = new Scene(root, 300, 250);
+        SplitPane split_pane = new SplitPane();
+        
+        split_pane.getItems().add(root);
+        split_pane.getItems().add(new StackPane());
+        
+        Scene scene = new Scene(split_pane, 300, 250);
         return scene;
     }
     
