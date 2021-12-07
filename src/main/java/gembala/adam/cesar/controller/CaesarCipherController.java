@@ -5,12 +5,12 @@
 package gembala.adam.cesar.controller;
 
 import gembala.adam.cesar.model.CaesarCipherModel;
+import gembala.adam.cesar.validation.ValidatorException;
 import gembala.adam.cesar.view.CaesarCipherTextInputView;
 import gembala.adam.cesar.view.CaesarCipherResultView;
 import gembala.adam.cesar.view.CaesarCipherShiftInputView;
 import gembala.adam.cesar.view.ICaesarCipherView;
 import java.util.Scanner;
-import javafx.event.ActionEvent;
 
 /**
  * Controller of an Caesar cipher application
@@ -38,7 +38,14 @@ public class CaesarCipherController {
         view = new CaesarCipherResultView();
     }
     
-    public String encrypt(String sPublicText, int iShift) {
+    /**
+     * Method encrypts text with provided key
+     * @param sPublicText Text to encrypt
+     * @param iShift Encryption key
+     * @return Encrypted text
+     * @throws ValidatorException Thrown when some of arguments is incorrect
+     */
+    public String encrypt(String sPublicText, int iShift) throws ValidatorException {
         model.setTextBeforeShifting(sPublicText);
         model.setShift(iShift);
         

@@ -5,16 +5,18 @@
 package gembala.adam.cesar.view;
 
 import gembala.adam.cesar.controller.CaesarCipherController;
+import gembala.adam.cesar.validation.ValidatorException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
@@ -28,6 +30,11 @@ public class CaesarCipherGUI {
      * Controller used by GUI
      */
     CaesarCipherController c;
+    
+    /**
+     * Alert used to display runtime errors and warnings
+     */
+    Alert a;
     
     /**
      * Input with text to be encrypted
@@ -50,6 +57,7 @@ public class CaesarCipherGUI {
     public CaesarCipherGUI()
     {
         c = new CaesarCipherController();
+        a = new Alert(AlertType.NONE);
         
         txtPublicText = new TextField();
         txtShift = new TextField();
@@ -92,14 +100,37 @@ public class CaesarCipherGUI {
      */
     public Scene makeScene()
     {
-        Button btn = new Button();
-        btn.setText("Shift text");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
+        Button btnRun = new Button();
+        btnRun.setText("Shift text");
+        btnRun.setOnAction(new EventHandler<ActionEvent>() {
             
             @Override public void handle(ActionEvent e) {
                 
-                txtResult.setText("This is placeholder for result");
-                
+                try {
+                    var iShift = Integer.parseInt(txtShift.getText().toString());
+                    
+                    var sPublicText = txtPublicText.getText().toString();
+                    
+                    var sEncryptedText = c.encrypt(sPublicText, iShift);
+                    
+                    txtResult.setText(sEncryptedText);
+                }
+                catch(ValidatorException ex)
+                {
+                    a.setAlertType(AlertType.ERROR);
+                    a.setTitle("Validation error.");
+                    a.setContentText(ex.getMessage());
+                    
+                    a.show();
+                }
+                catch(NumberFormatException ex)
+                {
+                    a.setAlertType(AlertType.ERROR);
+                    a.setTitle("Number format error.");
+                    a.setContentText("Shift has to be a integer number!");
+                    
+                    a.show();
+                }
             }
             
         });
@@ -112,7 +143,7 @@ public class CaesarCipherGUI {
         VBox mainLayout = new VBox();
         mainLayout.setSpacing(10);
 
-        mainLayout.getChildren().addAll(label1, txtPublicText, label2, txtShift, lbResult, txtResult, btn);
+        mainLayout.getChildren().addAll(label1, txtPublicText, label2, txtShift, lbResult, txtResult, btnRun);
         
         StackPane root = new StackPane();
         root.getChildren().add(mainLayout);

@@ -88,9 +88,15 @@ final public class CaesarCipherModel {
     /**
      * Sets the value of a text before shifting
      * @param sNewValue New value to be assigned
+     * @throws ValidatorException Exception thrown when new state would be invalid
      */
-    public void setTextBeforeShifting(String sNewValue) {
+    public void setTextBeforeShifting(String sNewValue) throws ValidatorException {
+        
+        myValidator.validate(sNewValue);
+        
         sTextBeforeShifting = sNewValue;
+        
+        sTextAfterShifting = this.cipher.encode(this.sTextBeforeShifting, this.iShift);
     }
    
     /**
@@ -115,5 +121,7 @@ final public class CaesarCipherModel {
      */
     public void setShift(int iNewValue) {
         iShift = iNewValue;
+        
+        sTextAfterShifting = this.cipher.encode(this.sTextBeforeShifting, this.iShift);
     }
 }
