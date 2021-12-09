@@ -29,6 +29,7 @@ import javafx.scene.layout.VBox;
 /**
  * GUI class of caesar cipher application
  * @author Adam
+ * @version 1.0.0
  */
 public class CaesarCipherGUI {
     
