@@ -77,11 +77,18 @@ public class CaesarCipherGUI {
         MenuItem m1 = new MenuItem("Encryption");
         MenuItem m2 = new MenuItem("Decryption");
         
-        m1.setOnAction((ActionEvent event) -> {
-            System.out.println("Encryption");
+        m1.setOnAction(event -> {
+            if(txtShift.getText().contains("-"))
+            {
+                txtShift.setText(txtShift.getText().replace("-", ""));
+            }
+            
         });
-        m2.setOnAction((ActionEvent event) -> {
-            System.out.println("Decryption");
+        m2.setOnAction(event -> {
+            if(!txtShift.getText().contains("-"))
+            {
+                txtShift.setText("-" + txtShift.getText());
+            }
         });
         
         m.getItems().add(m1);
@@ -141,20 +148,24 @@ public class CaesarCipherGUI {
         Label lbResult = new Label("Result: ");
   
         // create a VBox
+        VBox menuLayout = new VBox(createMenuBar());
+        
         VBox mainLayout = new VBox();
         mainLayout.setSpacing(10);
 
         mainLayout.getChildren().addAll(label1, txtPublicText, label2, txtShift, lbResult, txtResult, btnRun);
         
+        menuLayout.getChildren().add(mainLayout);
+        
         StackPane root = new StackPane();
-        root.getChildren().add(mainLayout);
+        root.getChildren().add(menuLayout);
         
         SplitPane split_pane = new SplitPane();
         
         split_pane.getItems().add(root);
         split_pane.getItems().add(new StackPane());
         
-        Scene scene = new Scene(split_pane, 300, 250);
+        Scene scene = new Scene(split_pane, 600, 500);
         return scene;
     }
     
