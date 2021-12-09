@@ -5,7 +5,9 @@
 package gembala.adam.cesar.view;
 
 import gembala.adam.cesar.controller.CaesarCipherController;
+import gembala.adam.cesar.model.HistoryRecord;
 import gembala.adam.cesar.validation.ValidatorException;
+import java.util.Date;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -17,7 +19,10 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SplitPane;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
@@ -53,6 +58,11 @@ public class CaesarCipherGUI {
     TextField txtResult;
     
     /**
+     * Table view with operation's history
+     */
+    TableView tabHistory;
+    
+    /**
      * Default constructor, initializes the instance of the class
      */
     public CaesarCipherGUI()
@@ -63,6 +73,7 @@ public class CaesarCipherGUI {
         txtPublicText = new TextField();
         txtShift = new TextField();
         txtResult = new TextField();
+        tabHistory = createHistoryTable();
     }
     
     /**
@@ -101,6 +112,34 @@ public class CaesarCipherGUI {
         return mb;
     }
     
+    /**
+     * Method creates history table view
+     * @return Created table view
+     */
+    public TableView createHistoryTable()
+    {
+        var view = new TableView();
+        
+        var col1 = new TableColumn<HistoryRecord, String>("Public text");
+        col1.setCellValueFactory(new PropertyValueFactory<>("publicText"));
+        
+        var col2 = new TableColumn<HistoryRecord, String>("Encrypted text");
+        col2.setCellValueFactory(new PropertyValueFactory<>("privateText"));
+        
+        var col3 = new TableColumn<HistoryRecord, String>("Encryption key");
+        col3.setCellValueFactory(new PropertyValueFactory<>("encryptionKey"));
+        
+        var col4 = new TableColumn<HistoryRecord, String>("Decryption key");
+        col4.setCellValueFactory(new PropertyValueFactory<>("decryptionKey"));
+        
+        
+        view.getColumns().add(col1);
+        view.getColumns().add(col2);
+        view.getColumns().add(col3);
+        view.getColumns().add(col4);
+        
+        return view;
+    }
     
     /**
      * Method creates initialized scene
@@ -115,13 +154,15 @@ public class CaesarCipherGUI {
             @Override public void handle(ActionEvent e) {
                 
                 try {
-                    var iShift = Integer.parseInt(txtShift.getText().toString());
+                    var iShift = Integer.parseInt(txtShift.getText());
                     
-                    var sPublicText = txtPublicText.getText().toString();
+                    var sPublicText = txtPublicText.getText();
                     
                     var sEncryptedText = c.encrypt(sPublicText, iShift);
                     
                     txtResult.setText(sEncryptedText);
+                    
+                    tabHistory.getItems().add(new HistoryRecord(sPublicText, sEncryptedText, iShift, -iShift));
                 }
                 catch(ValidatorException ex)
                 {
@@ -163,9 +204,9 @@ public class CaesarCipherGUI {
         SplitPane split_pane = new SplitPane();
         
         split_pane.getItems().add(root);
-        split_pane.getItems().add(new StackPane());
+        split_pane.getItems().add(tabHistory);
         
-        Scene scene = new Scene(split_pane, 600, 500);
+        Scene scene = new Scene(split_pane, 700, 500);
         return scene;
     }
     
