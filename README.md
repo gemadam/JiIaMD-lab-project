@@ -73,6 +73,25 @@
 - documentation (Javadoc) - mandatory tags: @author, @version, @param, @return, @throws,
 - Java naming convention and English identifiers.
 
+### Prototype no. 4
+
+- scope of the prototypes no. 1 & 2 & 3 (model, tests)
+- HTML form for the application view
+- servlet(s) giving access to the model, without data correctness verification
+
+### Final version no. 4
+
+- scope of the final projects no. 1-3 (model, tests),
+- HTML form as the view part, using the POST method,
+- servlet(s) providing access to the model,
+- use of include or forward method,
+- use of session for storing the history of performed operations (the user has to be able to DISPLAY this history),
+- use of cookies to store simple statistics, for example, number of errors or visits to the history page,
+- same way of handling GET and POST requests,
+- data validation and use of sendError in case of invalid data,
+- documentation (Javadoc) - description of all classes, methods, fields, and packages (including unit tests),
+- documentation (Javadoc) - mandatory tags: @author, @version, @param, @return, @throws,
+- Java naming convention and English identifiers.
 
 ## Submitting project iteration
 
