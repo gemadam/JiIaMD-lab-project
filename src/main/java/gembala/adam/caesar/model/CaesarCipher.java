@@ -2,7 +2,7 @@
  * @author Adam Gembala
  * @version 1.0.0
  */
-package gembala.adam.cesar.model;
+package gembala.adam.caesar.model;
 
 /**
  * Caesar cipher class 

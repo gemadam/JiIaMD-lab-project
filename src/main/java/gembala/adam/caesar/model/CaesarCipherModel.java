@@ -2,12 +2,12 @@
  * @author Adam Gembala
  * @version 1.0.0
  */
-package gembala.adam.cesar.model;
+package gembala.adam.caesar.model;
 
-import gembala.adam.cesar.validation.EnglishAlphabetValidatorRule;
-import gembala.adam.cesar.validation.NotEmptyStringValidatorRule;
-import gembala.adam.cesar.validation.Validator;
-import gembala.adam.cesar.validation.ValidatorException;
+import gembala.adam.caesar.validation.EnglishAlphabetValidatorRule;
+import gembala.adam.caesar.validation.NotEmptyStringValidatorRule;
+import gembala.adam.caesar.validation.Validator;
+import gembala.adam.caesar.validation.ValidatorException;
 
 /**
  * Class of cipher model contains the data neccessary to 

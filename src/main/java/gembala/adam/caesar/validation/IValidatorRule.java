@@ -2,7 +2,7 @@
  * @author Adam Gembala
  * @version 1.0.0
  */
-package gembala.adam.cesar.validation;
+package gembala.adam.caesar.validation;
 
 /**
  * Interface of a user input validator   

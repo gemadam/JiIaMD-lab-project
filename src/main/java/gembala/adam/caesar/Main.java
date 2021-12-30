@@ -4,8 +4,8 @@
  */
 package gembala.adam.caesar;
 
-import gembala.adam.cesar.controller.CaesarCipherController;
-import gembala.adam.cesar.view.CaesarCipherGUI;
+import gembala.adam.caesar.controller.CaesarCipherController;
+import gembala.adam.caesar.view.CaesarCipherGUI;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.event.ActionEvent;

@@ -1,6 +1,6 @@
 package gembala.adam.model.tests;
 
-import gembala.adam.cesar.model.CaesarCipherModel;
+import gembala.adam.caesar.model.CaesarCipherModel;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;

@@ -2,14 +2,14 @@
  * @author Adam Gembala
  * @version 1.0.0
  */
-package gembala.adam.cesar.controller;
+package gembala.adam.caesar.controller;
 
-import gembala.adam.cesar.model.CaesarCipherModel;
-import gembala.adam.cesar.validation.ValidatorException;
-import gembala.adam.cesar.view.CaesarCipherTextInputView;
-import gembala.adam.cesar.view.CaesarCipherResultView;
-import gembala.adam.cesar.view.CaesarCipherShiftInputView;
-import gembala.adam.cesar.view.ICaesarCipherView;
+import gembala.adam.caesar.model.CaesarCipherModel;
+import gembala.adam.caesar.validation.ValidatorException;
+import gembala.adam.caesar.view.CaesarCipherTextInputView;
+import gembala.adam.caesar.view.CaesarCipherResultView;
+import gembala.adam.caesar.view.CaesarCipherShiftInputView;
+import gembala.adam.caesar.view.ICaesarCipherView;
 import java.util.Scanner;
 
 /**

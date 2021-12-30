@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package gembala.adam.cesar.view;
+package gembala.adam.caesar.view;
 
-import gembala.adam.cesar.controller.CaesarCipherController;
-import gembala.adam.cesar.model.HistoryRecord;
-import gembala.adam.cesar.validation.ValidatorException;
+import gembala.adam.caesar.controller.CaesarCipherController;
+import gembala.adam.caesar.model.HistoryRecord;
+import gembala.adam.caesar.validation.ValidatorException;
 import java.util.Date;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

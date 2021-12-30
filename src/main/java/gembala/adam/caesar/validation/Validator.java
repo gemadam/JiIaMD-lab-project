@@ -2,7 +2,7 @@
  * @author Adam Gembala
  * @version 1.0.0
  */
-package gembala.adam.cesar.validation;
+package gembala.adam.caesar.validation;
 
 import java.util.ArrayList;
 import java.util.List;

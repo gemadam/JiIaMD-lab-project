@@ -1,6 +1,6 @@
-package gembala.adam.cesar.view;
+package gembala.adam.caesar.view;
 
-import gembala.adam.cesar.model.CaesarCipherModel;
+import gembala.adam.caesar.model.CaesarCipherModel;
 
 /**
  * View that asks user for text input

@@ -20,9 +20,12 @@
                 <packaging>jar</packaging>
             </packagings>
             <goals>
-                <goal>clean</goal>
-                <goal>javafx:run</goal>
+                <goal>package</goal>
+                
             </goals>
+            <properties>
+                <netbeans.deploy>true</netbeans.deploy>
+            </properties>
         </action>
         <action>
             <actionName>debug</actionName>
@@ -30,16 +33,18 @@
                 <packaging>jar</packaging>
             </packagings>
             <goals>
-                <goal>clean</goal>
-                <goal>javafx:run@ide-debug</goal>
+                <goal>package</goal>
+                
             </goals>
             <properties>
+                <netbeans.deploy.debugmode>true</netbeans.deploy.debugmode>
+                <netbeans.deploy>true</netbeans.deploy>
                 
                 
                 
                 
                 
-                <jpda.listen>true</jpda.listen>
+                
             </properties>
         </action>
         <action>
