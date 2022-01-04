@@ -1,5 +1,5 @@
 
-# JiIaMD laboraory project
+# JiIaMD laboratory project
 
 ## Project's topic
 
