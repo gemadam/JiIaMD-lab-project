@@ -1,5 +1,6 @@
 gembala.adam.caesar
-gembala.adam.cesar.controller
-gembala.adam.cesar.model
-gembala.adam.cesar.validation
-gembala.adam.cesar.view
+gembala.adam.caesar.controller
+gembala.adam.caesar.model
+gembala.adam.caesar.servlets
+gembala.adam.caesar.validation
+gembala.adam.caesar.view

@@ -7,14 +7,21 @@
     </head>
     <body>
         <nav class="navbar navbar-dark bg-primary">
-            <div class="container-fluid">
-                <a class="navbar-brand">Caesar Cipher | Adam Gembala, Informatics, sem. V</a>
-            </div>
+            <ul class="container navbar-nav d-flex flex-row justify-content-between me-auto mb-2">
+                <li class="nav-item">
+                    <a class="navbar-brand">Caesar Cipher | Adam Gembala, Informatics, sem. V</a>
+                </li>
+                <li class="nav-item nav-link active">
+                    Session id: <span id="sessionID" class="nav-link active">-</span>
+                </li>
+            </<>
         </nav>
 
         <div class="container mt-3">
             <div class="row">
                 <form id="caesarCipherForm" action="CaesarCipher" method="POST" class="col-7">
+                    <h3>Input</h3>
+                    
                     <div class="mb-3">
                         <label for="publicTextInput" class="form-label">Text before shifting</label>
                         <input type="text" class="form-control" id="publicTextInput" name="publicTextInput" placeholder="Accepts only [A-Za-z] space and underscore">
@@ -48,10 +55,74 @@
                     </section>
                 </aside>
             </div>
+            <div class="row">
+                <h3>History</h3>
+                <ul class="list-group list-group-horizontal m-2">
+                    <li class="list-group-item">Last visit: <span id="lastVisit">-</span></li>
+                    <li class="list-group-item">Number of errors: <span id="numOfErrors">-</span></li>
+                    <li class="list-group-item">Number of bad requests: <span id="numOfBadRequests">-</span></li>
+                </ul>
+                <div id="caesarCipherHistory" class="list-group m-2">
+                </div>
+            </div>
         </div>
         
         
         <script src="bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+        
+        
+        
+        <!-- History -->
+        <script>
+            const caesarCipherHistory = document.getElementById('caesarCipherHistory');
+            const sessionID = document.getElementById('sessionID');
+            const lastVisit = document.getElementById('lastVisit');
+            const numOfErrors = document.getElementById('numOfErrors');
+            const numOfBadRequests = document.getElementById('numOfBadRequests');
+            
+            let getUserStatistics = () => 
+            {
+                const xhttp = new XMLHttpRequest();
+                
+                xhttp.onload = (x) => 
+                {
+                    var userStatistics = JSON.parse(x.target.responseText);
+                    
+                    sessionID.textContent = userStatistics.sessionID;
+                    lastVisit.textContent = userStatistics.lastVisit;
+                    numOfErrors.textContent = userStatistics.numOfErrors;
+                    numOfBadRequests.textContent = userStatistics.numOfBadRequests;
+                    
+                    caesarCipherHistory.innerHTML = "";
+                    
+                    for(let h of userStatistics.history)
+                    {
+                        let sHTML = `<li class="d-flex w-100 list-group-item">`;
+                        
+                        sHTML += '<div class="flex-grow-1 mb-3"><label for="privateTextInput" class="form-label">Text before shifting</label>';
+                        sHTML += `<input id="privateTextInput" name="privateTextInput" class="form-control" type="text" value="${h.publicText}" readonly></div>`;
+                        
+                        sHTML += '<div class="flex-grow-2 mb-3"><label for="privateTextInput" class="form-label">Encryption key</label>';
+                        sHTML += `<input id="privateTextInput" name="privateTextInput" class="form-control" type="text" value="${h.encryptionKey}" readonly></div>`;
+                        
+                        sHTML += '<div class="flex-grow-1 mb-3"><label for="privateTextInput" class="form-label">Text after shifting</label>';
+                        sHTML += `<input id="privateTextInput" name="privateTextInput" class="form-control" type="text" value="${h.privateText}" readonly></div>`;
+                        
+                        
+                        sHTML += '</li>';
+                        caesarCipherHistory.innerHTML += sHTML;
+                    }
+                }
+                
+                xhttp.open("GET", "UserStatistics");
+                
+                xhttp.send();
+            }
+            
+            getUserStatistics();
+        </script>
+        
+        <!-- Submitting form -->
         <script>
             const caesarCipherForm = document.getElementById('caesarCipherForm');
             const publicTextInput = document.getElementById("publicTextInput");
@@ -67,13 +138,16 @@
                     let privateTextInput = document.getElementById('privateTextInput');
                 
                     privateTextInput.value = x.target.responseText;
+                    
+                    if(getUserStatistics != null)
+                        getUserStatistics();
                 }
                 
                 xhttp.open(event.target.method, event.target.action);
                 
                 xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 
-                xhttp.send(`publicTextInput=${publicTextInput.value}&shiftInput=${shiftInput.value}`);
+                xhttp.send(`publicTextInput=${encodeURIComponent(publicTextInput.value)}&shiftInput=${encodeURIComponent(shiftInput.value)}`);
             });
         </script>
     </body>
