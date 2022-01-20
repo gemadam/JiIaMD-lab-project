@@ -93,6 +93,19 @@
 - documentation (Javadoc) - mandatory tags: @author, @version, @param, @return, @throws,
 - Java naming convention and English identifiers.
 
+### Final version no. 5
+
+- scope of the final projects no. 1-4 (model, tests, web application),
+- database support using JDBC or JPA,
+- automatic database schema creation on the first run of the application,
+- database connection should be established only once for the run of the application,
+- storing the history of performed operations in the database,
+- ability to see all database records through the web application,
+- database exceptions handling,
+- documentation (Javadoc) - description of all classes, methods, fields, and packages (including unit tests),
+- documentation (Javadoc) - mandatory tags: @author, @version, @param, @return, @throws,
+- Java naming convention and English identifiers.
+
 ## Submitting project iteration
 
 Project should be submitted in form of the zip archive.
