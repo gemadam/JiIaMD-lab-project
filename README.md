@@ -93,6 +93,12 @@
 - documentation (Javadoc) - mandatory tags: @author, @version, @param, @return, @throws,
 - Java naming convention and English identifiers.
 
+### Prototype no. 5
+
+- web application with unit tests of the model and access to the model (scope of prototypes 2 and 4).
+- data classes in the model (entities in case of JPA, or POJOs for JDBC).
+- CRUD operations for all data classes without exception handling and access from the web application.
+
 ### Final version no. 5
 
 - scope of the final projects no. 1-4 (model, tests, web application),
