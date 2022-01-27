@@ -17,6 +17,7 @@
 		<microprofile.version>3.0</microprofile.version>
 		<mockito-core.version>3.1.0</mockito-core.version>
 		<junit-jupiter.version>5.5.0</junit-jupiter.version>
+        <jakartaee>8.0</jakartaee>
 	</properties>
     
     <build>
@@ -85,11 +86,11 @@
     </build>
     <dependencies>
     	<dependency>
-			<groupId>jakarta.platform</groupId>
-			<artifactId>jakarta.jakartaee-api</artifactId>
-			<version>${jakarta.jakartaee-api.version}</version>
-			<scope>provided</scope>
-		</dependency>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-api</artifactId>
+            <version>${jakarta.jakartaee-api.version}</version>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>org.eclipse.microprofile</groupId>
             <artifactId>microprofile</artifactId>
@@ -97,18 +98,34 @@
             <type>pom</type>
             <scope>provided</scope>
         </dependency>
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter</artifactId>
-			<version>${junit-jupiter.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-core</artifactId>
-			<version>${mockito-core.version}</version>
-			<scope>test</scope>
-		</dependency>
+	<dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit-jupiter.version}</version>
+		<scope>test</scope>
+	</dependency>
+	<dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito-core.version}</version>
+            <scope>test</scope>
+	</dependency>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>${jakartaee}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derbyclient</artifactId>
+            <version>10.14.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derbytools</artifactId>
+            <version>10.14.2.0</version>
+        </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>

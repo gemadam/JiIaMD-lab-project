@@ -2,11 +2,13 @@ package gembala.adam.caesar.servlets;
 
 import gembala.adam.caesar.controller.CaesarCipherController;
 import gembala.adam.caesar.model.HistoryRecord;
+import gembala.adam.caesar.repository.HistoryRepository;
 import gembala.adam.caesar.validation.ValidatorException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Enumeration;
+import javax.persistence.EntityManager;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -26,6 +28,19 @@ public class CaesarCipherServlet extends HttpServlet {
      * Controller of the servlet
      */
     CaesarCipherController controller;
+    
+    /**
+     * DAL for history records
+     */
+    private HistoryRepository historyRepo;
+    
+    private EntityManager em;
+
+    
+    @Override
+    public void init() throws ServletException {
+        historyRepo = new HistoryRepository((EntityManager) getServletContext().getAttribute("entityManager"));
+    }
     
     
     /**
