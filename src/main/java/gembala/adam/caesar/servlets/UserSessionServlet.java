@@ -1,10 +1,12 @@
 package gembala.adam.caesar.servlets;
 
 import gembala.adam.caesar.model.HistoryRecord;
+import gembala.adam.caesar.repository.HistoryRepository;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import javax.persistence.EntityManager;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -20,6 +22,20 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "UserStatistics", urlPatterns = {"/UserStatistics"})
 public class UserSessionServlet extends HttpServlet {
     
+    
+    /**
+     * DAL for history records
+     */
+    private HistoryRepository historyRepo;
+    
+    /**
+     * Initializer of the servlet
+     * @exception ServletException On initialization error
+     */  
+    @Override
+    public void init() throws ServletException {
+        historyRepo = new HistoryRepository((EntityManager) getServletContext().getAttribute("entityManager"));
+    }
     
     /**
      * Method searches for cookie value
@@ -82,11 +98,9 @@ public class UserSessionServlet extends HttpServlet {
         else 
             out.write("\"numOfErrors\": " + numOfErrors + ",");
         
-        var history = session.getAttribute("history");
-        if(history != null)
+        var lstHistory = historyRepo.Read(sessionID);
+        if(lstHistory != null && lstHistory.size() > 0)
         {
-            var lstHistory = (ArrayList<HistoryRecord>)history;
-            
             out.write("\"history\": [");
             
             for(var i = 0; i < lstHistory.size(); i++)

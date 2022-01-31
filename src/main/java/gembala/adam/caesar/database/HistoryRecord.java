@@ -17,10 +17,23 @@ import javax.persistence.Id;
 @Entity
 public class HistoryRecord implements Serializable {
 
+    /**
+     * Serial version UID
+     */
     private static final long serialVersionUID = 1L;
+    
+    
+    /**
+     * Record id
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    /**
+     * Session id
+     */
+    String sessionID;
 
     /**
      * Text that was encrypted
@@ -42,6 +55,24 @@ public class HistoryRecord implements Serializable {
      */
     int deKey;
     
+    
+    /**
+     * Getter of the session id
+     * @return Public text
+     */
+    public String getSessionId()
+    {
+        return publicText;
+    }
+    
+    /**
+     * Setter of the session id
+     * @param val New value
+     */
+    public void setSessionId(String val)
+    {
+        sessionID = val;
+    }
     
     /**
      * Getter of the public text
@@ -116,6 +147,10 @@ public class HistoryRecord implements Serializable {
     }
     
 
+    /**
+     * Getter of the hash code
+     * @return Hash code
+     */
     @Override
     public int hashCode() {
         int hash = 0;
@@ -123,6 +158,10 @@ public class HistoryRecord implements Serializable {
         return hash;
     }
 
+    /**
+     * Checks if object is equal to another object
+     * @return Result of comparison
+     */
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
@@ -136,6 +175,10 @@ public class HistoryRecord implements Serializable {
         return true;
     }
 
+    /**
+     * Converts object to string
+     * @return String representation of the object
+     */
     @Override
     public String toString() {
         return "gembala.adam.caesar.database.entities.HistoryRecord[ id=" + id + " ]";

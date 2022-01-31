@@ -6,7 +6,6 @@ import gembala.adam.caesar.repository.HistoryRepository;
 import gembala.adam.caesar.validation.ValidatorException;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.Enumeration;
 import javax.persistence.EntityManager;
 import javax.servlet.ServletException;
@@ -33,10 +32,11 @@ public class CaesarCipherServlet extends HttpServlet {
      * DAL for history records
      */
     private HistoryRepository historyRepo;
-    
-    private EntityManager em;
 
-    
+    /**
+     * Initializer of the servlet
+     * @exception ServletException On initialization error
+     */  
     @Override
     public void init() throws ServletException {
         historyRepo = new HistoryRepository((EntityManager) getServletContext().getAttribute("entityManager"));
@@ -99,8 +99,6 @@ public class CaesarCipherServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException
     {
-        var session = request.getSession();
-        
         var numOfBadRequests = getCookie(request.getCookies(), "numOfBadRequests");
         if(numOfBadRequests == null)
             response.addCookie(new Cookie("numOfBadRequests", "0"));
@@ -108,9 +106,6 @@ public class CaesarCipherServlet extends HttpServlet {
         var numOfErrors = getCookie(request.getCookies(), "numOfErrors");
         if(numOfErrors == null)
             response.addCookie(new Cookie("numOfErrors", "0"));
-        
-        if(session.getAttribute("history") == null)
-            session.setAttribute("history", new ArrayList<HistoryRecord>());
         
         
         response.setContentType("text/plain; charset=ISO-8859-2");
@@ -166,10 +161,7 @@ public class CaesarCipherServlet extends HttpServlet {
                     
             out.println(sEncryptedText);
             
-            var history = (ArrayList<HistoryRecord>)session.getAttribute("history");
-            
-            history.add(0, new HistoryRecord(sPublicText, sEncryptedText, iShift, -iShift));
-            session.setAttribute("history", history);
+            historyRepo.Create(request.getSession().getId(), sPublicText, sEncryptedText, iShift, -iShift);
         }
         catch(ValidatorException ex)
         {
