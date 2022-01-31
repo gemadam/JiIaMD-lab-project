@@ -13,10 +13,15 @@ import javax.servlet.annotation.WebListener;
 /**
  * Database listener.
  * @author Adam Gembala
+ * @version 1.0.0
  */
 @WebListener
 public class DbInitListener implements ServletContextListener {
 
+    /**
+     * Method called when context is initialized
+     * @param sce Servlet context event
+     */
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         
@@ -32,7 +37,11 @@ public class DbInitListener implements ServletContextListener {
         
         sce.getServletContext().setAttribute("entityManager", myManager);
     }
-
+    
+    /**
+     * Method called when context is destroyed
+     * @param sce Servlet context event
+     */
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
     }
