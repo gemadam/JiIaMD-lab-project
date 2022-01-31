@@ -1,6 +1,8 @@
 gembala.adam.caesar
 gembala.adam.caesar.controller
+gembala.adam.caesar.database
 gembala.adam.caesar.model
+gembala.adam.caesar.repository
 gembala.adam.caesar.servlets
 gembala.adam.caesar.validation
 gembala.adam.caesar.view
